@@ -19,6 +19,21 @@ This skill covers:
 - a repair workflow that shows you the diff rather than silently rewriting your
   specification.
 
+And, for reviewing a set rather than writing one — where the expensive findings
+actually are:
+
+- a conflict sweep that catches the same quantity carrying two different values
+  in two different documents, which is the defect that survives every
+  per-requirement check because both halves look correct alone;
+- window arithmetic, so "99.95 % uptime during the event" gets multiplied out to
+  the 5.4 seconds it actually permits before anyone commits to it;
+- budget closure, checking that the children sum under the parent *and* that the
+  parent's measurement window is the one the budget measures;
+- coverage matrices driven from the hazard log and anchor catalog inward, because
+  a missing safety requirement is invisible from inside the requirements file;
+- a disposition ledger for the re-review, which separates "closed" from "closed
+  on an assumption I made and you have not confirmed".
+
 ## Install
 
 ```

@@ -41,6 +41,11 @@ holding two requirements in one.
    it exists. A requirement nobody can justify is a requirement you delete.
 6. **Verifiable as written.** Ask: *what test would fail this?* If you cannot name one,
    rewrite until you can. See `mbse-verification`.
+7. **One quantity, one place.** A physical quantity gets one value, at one measurement
+   point, in one requirement. When a constraint table, a safety anchor, and a system
+   requirement all state the same limit, two of them are copies waiting to drift — state
+   it once and have the others cite it. Drifted copies are the most expensive defect in
+   this document class, because both halves look correct in isolation.
 
 ## Banned words
 
@@ -48,6 +53,18 @@ Reject these on sight and rewrite: *user-friendly, robust, efficient, sufficient
 adequate, appropriate, as required, if practical, minimize, maximize, optimize, support,
 handle, process, manage, etc., and/or, TBD (without an owner and a due date), quickly,
 approximately (without a tolerance), state-of-the-art, seamless.*
+
+Also reject these, which pass a word-list check but fail a review:
+
+| Phrase | Why it fails | Fix |
+|---|---|---|
+| "real-time", "immediately", "promptly" | No number | State the deadline and the percentile |
+| "improve X to Y", "reduce X by N %" | Comparative with no baseline | Name the baseline, its measurement method, and its date — or restate as an absolute |
+| "stable", "consistent", "reliable" | No invariant named | Say stable *across what*: which events must not change it |
+| "e.g.", "such as", "including" inside a scope clause | Open-ended list; scope is unbounded | Close the list, or cite a table that closes it |
+| "critical", "essential", "key" as a qualifier | Undefined set | Enumerate the set in a table and cite the table |
+| "before production", "when ready" | No gate | Name the gate, the artifact, and who signs it |
+| A percentage with no window | Means nothing until multiplied out | State the window, then check what the number permits |
 
 `should`, `will`, `may` are not requirements. `shall` = binding requirement. `will` =
 statement of fact about the environment. `should` = goal. Keep them in separate sections.
@@ -66,8 +83,20 @@ verification_method: Test      # Test | Analysis | Demonstration | Inspection | 
 rationale: "Bounds the control loop's sense-to-act budget of 250 ms."
 derived_from: [REQ-SYS-014]    # parent(s)
 allocated_to: [Perception]     # owning component
+verified_by: [VER-031]         # verification case(s) — the down-trace
 status: Proposed               # Proposed | Approved | Implemented | Verified | Rejected
 ```
+
+**Owned TBDs.** Not having a value is never a reason to write a vague requirement. Write
+the requirement fully formed with the value as `[TBD-nn]`, and put `nn` in an open-items
+table with a named owner and a date:
+
+| ID | Item | Owner | Due |
+|---|---|---|---|
+| OPEN-03 | Natural-language query correctness target (`SYS-R-018`) | CIO / IT | 2026-10-31 |
+
+An unowned TBD is a defect. An owned one is a schedule item, and the requirement around it
+is reviewable today.
 
 ## ID scheme
 
@@ -77,20 +106,48 @@ sequentially per subsystem. **IDs are permanent.** Deleting a requirement retire
 never reissue it. When a requirement is split, retire the parent and issue two new IDs,
 with `derived_from` pointing back at the retired one so the history survives.
 
+**The ID register.** Any review that changes IDs ends with a register, because a reader
+has to be able to find where their requirement went:
+
+| Old ID | Disposition | Successors | Reason |
+|---|---|---|---|
+| `SYS-R-003` | **Retired — split** | `SYS-R-010`, `SYS-R-011` | Design leakage; wrong measurement point; no prediction accuracy |
+| `SYS-R-002` | Retained, revised | — | Defined "stable"; moved the subject from the asset to the registry |
+
+*Retained* means the intent survived a rewrite and the ID stays. A split always retires
+the parent — two requirements cannot share one approval.
+
 ## Review checklist
 
-Run this over any requirement set you are handed:
+### Per requirement
 
-- [ ] Each requirement matches one EARS pattern
-- [ ] One `shall` each; no compound requirements
+- [ ] Matches one EARS pattern
+- [ ] One `shall`; no compound requirements
+- [ ] Named subject that some component owns
 - [ ] Every performance number has units + measurement conditions
-- [ ] No banned words
+- [ ] No banned words or banned phrases
 - [ ] No design leakage
-- [ ] Every requirement has `rationale`, `verification_method`, `priority`
-- [ ] Every requirement traces up (`derived_from`) and down (`verified_by`) — see `mbse-traceability`
-- [ ] No duplicate requirements (same intent, different words) — search by meaning, not by string
-- [ ] No orphan TBDs
-- [ ] Priorities are defensible: `Critical` means loss of mission/life/certification, not "the customer asked twice"
+- [ ] Has `rationale`, `verification_method`, `priority`, `status`
+- [ ] Traces up (`derived_from`) and down (`verified_by`) — see `mbse-traceability`
+- [ ] Priority is defensible: `Critical` means loss of mission/life/certification, not "the customer asked twice"
+
+### Across the set
+
+This is where the expensive findings are. A document can pass every per-requirement check
+and still be unbuildable, because these defects live *between* requirements — and between
+this document and the safety artifacts next to it.
+
+- [ ] **Conflict sweep** — one quantity, one value, one measurement point, across the whole document set
+- [ ] **Window arithmetic** — multiply every rate and percentage out against its stated window
+- [ ] **Budget closure** — child allocations sum under the parent's number, with the remainder stated
+- [ ] **Coverage** — every hazard, anchor, and FMEA failure mode names a requirement
+- [ ] **Off-nominal** — each of those has an `If … then` requirement, not only a nominal one
+- [ ] **One vocabulary** — one priority enum, one severity scale, one term per concept
+- [ ] **Trace plausibility** — read each `derived_from` and ask whether that parent actually motivates this child
+- [ ] **Field completeness** — checked mechanically, never by eye
+- [ ] **No duplicates** — same intent, different words; search by meaning, not by string
+
+Methods, templates, and worked examples for each: `reference/review-playbook.md`.
 
 ## Workflow: repairing a bad requirement
 
@@ -99,6 +156,23 @@ Run this over any requirement set you are handed:
 3. Emit the rewrite in EARS form with all required fields.
 4. If the original was compound, emit N requirements and state the ID retirement.
 5. State the verification that would fail it.
+6. **Declare every value you supplied.** If you picked a number the owner never gave you —
+   an accuracy, a threshold, a percentile, a reading of an ambiguous phrase — say so, and
+   record it as an owned TBD or a named assumption. A repaired requirement that quietly
+   encodes the reviewer's guess is worse than the vague one it replaced: it now looks
+   settled.
 
 Never silently improve a requirement — the diff is the deliverable, because someone has
 to approve the change.
+
+## Reporting a review
+
+Findings are ordered by what stops the review first, not by document order: conflicts,
+then unverifiable, then leakage, then coverage, then document-wide. A conflict blocks
+everything downstream, because until the numbers agree there is nothing to adjudicate.
+
+Re-reviewing a repaired document produces a **disposition ledger** — every finding, what
+the new version did about it, and which requirement now carries it. Three dispositions:
+*Closed*, *Closed on assumption* (you supplied the value — name the owner), and *Carried
+forward* (structurally resolved, completion tracked as an open item). Template in
+`reference/review-playbook.md`.
