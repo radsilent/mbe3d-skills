@@ -1,0 +1,15 @@
+{
+  "name": "mbse-requirements",
+  "displayName": "MBSE Requirements Authoring",
+  "version": "2.0.1",
+  "description": "Write, review and repair system requirements to aerospace and defence standards, using the five EARS patterns.",
+  "author": {
+    "name": "Vector Stream Systems LLC",
+    "email": "streamline@vectorstreamsystems.com",
+    "url": "https://vectorstreamsystems.com"
+  },
+  "homepage": "https://vectorstreamsystems.com/skillpack",
+  "repository": "https://github.com/radsilent/mbe3d-skills",
+  "license": "LicenseRef-VSS-Free-Skill",
+  "keywords": ["systems-engineering", "requirements", "ears", "mbse", "aerospace", "defense"]
+}

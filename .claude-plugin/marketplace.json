@@ -1,0 +1,38 @@
+{
+  "name": "vector-stream-systems",
+  "owner": {
+    "name": "Vector Stream Systems LLC",
+    "email": "streamline@vectorstreamsystems.com",
+    "url": "https://vectorstreamsystems.com"
+  },
+  "description": "Model-based systems engineering skills for AI coding agents. Requirements, safety, traceability and verification, written to aerospace and defence practice.",
+  "plugins": [
+    {
+      "name": "mbse-requirements",
+      "source": "./plugins/mbse-requirements",
+      "displayName": "MBSE Requirements Authoring",
+      "description": "Write, review and repair system requirements to aerospace and defence standards. The five EARS patterns, permanent ID schemes, a banned-word list that rejects \"robust\" and \"user-friendly\" on sight, and a repair workflow that shows you the diff instead of silently rewriting your spec.",
+      "version": "2.0.1",
+      "author": {
+        "name": "Vector Stream Systems LLC",
+        "email": "streamline@vectorstreamsystems.com",
+        "url": "https://vectorstreamsystems.com"
+      },
+      "homepage": "https://vectorstreamsystems.com/skillpack",
+      "repository": "https://github.com/radsilent/mbe3d-skills",
+      "license": "LicenseRef-VSS-Free-Skill",
+      "category": "engineering",
+      "keywords": [
+        "systems-engineering",
+        "requirements",
+        "ears",
+        "mbse",
+        "aerospace",
+        "defense",
+        "verification",
+        "traceability",
+        "reqif"
+      ]
+    }
+  ]
+}
