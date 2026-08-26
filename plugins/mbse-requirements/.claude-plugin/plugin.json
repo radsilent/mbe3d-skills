@@ -1,7 +1,6 @@
 {
   "name": "mbse-requirements",
   "displayName": "MBSE Requirements Authoring",
-  "version": "2.1.0",
   "description": "Write, review and repair system requirements to aerospace and defence standards, using the five EARS patterns.",
   "author": {
     "name": "Vector Stream Systems LLC",
