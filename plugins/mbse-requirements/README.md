@@ -41,9 +41,9 @@ actually are:
 /plugin install mbse-requirements@vector-stream-systems
 ```
 
-## The other eight
+## The other nine
 
-This is one skill of nine. The rest are in the
+This is one skill of ten. The rest are in the
 [MBE3D Systems Engineering Skill Pack](https://vectorstreamsystems.com/skillpack),
 a one-time purchase:
 
@@ -57,9 +57,10 @@ a one-time purchase:
 | `mbe3d-load` | Getting a model in with your engineering attributes intact |
 | `mbe3d-analyze` | SPARQL over the real vocabulary, competency suites, CI gates |
 | `mbe3d-studio` | The 3D surface and the provenance model underneath it |
+| `mbe3d-harness` | The agent runtime behind the studio: which plugins mounted, what a run did, and the append-only session log it did it in |
 
-Five of the nine work on plain files with nothing installed. Four need an
-MBE3Dstudio server.
+Five of the ten work on plain files with nothing installed. The other five need
+an MBE3Dstudio server, or the harness that drives it.
 
 ## Licence
 

@@ -24,9 +24,9 @@ spec.
 
 ## The full pack
 
-`mbse-requirements` is one skill of nine. The other eight cover safety analysis,
-traceability, verification, a portable model format, and operating an
-MBE3Dstudio server. They are a one-time purchase:
+`mbse-requirements` is one skill of ten. The other nine cover safety analysis,
+traceability, verification, a portable model format, operating an MBE3Dstudio
+server, and driving the agent runtime behind it. They are a one-time purchase:
 
 **https://vectorstreamsystems.com/skillpack**
 

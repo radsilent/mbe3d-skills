@@ -16,8 +16,8 @@ Use it; do not repackage it.
 
 ## Relationship to the paid pack
 
-This is one skill of the nine in the MBE3D Systems Engineering Skill Pack. The
-other eight are sold under a different licence that does not permit publication,
+This is one skill of the ten in the MBE3D Systems Engineering Skill Pack. The
+other nine are sold under a different licence that does not permit publication,
 and nothing here grants any right to them.
 
   https://vectorstreamsystems.com/skillpack
