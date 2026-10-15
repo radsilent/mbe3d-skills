@@ -19,7 +19,7 @@
       },
       "homepage": "https://vectorstreamsystems.com/skillpack",
       "repository": "https://github.com/radsilent/mbe3d-skills",
-      "license": "LicenseRef-VSS-Free-Skill",
+      "license": "MIT",
       "category": "engineering",
       "keywords": [
         "systems-engineering",
