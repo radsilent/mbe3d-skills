@@ -20,7 +20,7 @@ spec.
 ```
 
 [Details](plugins/mbse-requirements/README.md) ·
-[Licence](plugins/mbse-requirements/LICENSE.md)
+[MIT licence](LICENSE)
 
 ## The full pack
 

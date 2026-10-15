@@ -63,4 +63,15 @@ an MBEstudio server.
 
 ## Licence
 
-Free to use, not to repackage. See [LICENSE.md](LICENSE.md).
+MIT. See [LICENSE](LICENSE). Use it, change it and redistribute it, as long as
+the copyright and licence notice stay with it.
+
+The MIT licence covers this skill as published in this repository. The other
+eight skills in the pack, and the pack's own copy of this one, are sold under a
+separate licence: https://vectorstreamsystems.com/skillpack
+
+Its guidance on MIL-STD-882E, ARP4761, DO-178C and ISO 26262 is a working
+summary. It is not a substitute for the standards as issued, for a certified
+process, or for a qualified engineer.
+
+Questions: streamline@vectorstreamsystems.com
