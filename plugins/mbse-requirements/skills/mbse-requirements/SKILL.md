@@ -6,7 +6,7 @@ description: Author, review, and repair system requirements to aerospace/defense
 # Requirements Authoring
 
 Write requirements that survive a design review, an auditor, and a verification campaign.
-Works on plain files. If an MBE3Dstudio server is configured, `mbe3d-load` pushes the
+Works on plain files. If an MBEstudio server is configured, `mbe3d-load` pushes the
 result into the live graph — but never block on the server; author first, load second.
 
 ## The five EARS patterns
