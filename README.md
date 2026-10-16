@@ -32,6 +32,18 @@ server. They are a one-time purchase:
 
 They are not in this repository and are licensed separately.
 
+## Background reading
+
+- [What is AI model-based systems engineering?](https://vectorstreamsystems.com/resources/what-is-ai-mbse):
+  what AI can do in a SysML workflow today, where it fails, and how to check an
+  AI-generated model before you rely on it.
+- [AI SysML v2, from requirement to checked model](https://vectorstreamsystems.com/ai-sysml-v2):
+  two plain-language requirements, the SysML v2 text written for them, and the
+  compiler's value, limit and margin for each. The requirement shapes match the
+  EARS patterns this plugin teaches.
+- [SysML v2 tools compared](https://vectorstreamsystems.com/sysml-v2-tools):
+  thirteen tools, where each runs and who it suits.
+
 ## Who makes this
 
 [Vector Stream Systems LLC](https://vectorstreamsystems.com) —
