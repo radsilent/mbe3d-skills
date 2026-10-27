@@ -3,7 +3,7 @@
 Systems engineering skills for AI coding agents.
 
 ```
-/plugin marketplace add radsilent/mbe3d-skills
+/plugin marketplace add radsilent/mbestudio-skills
 ```
 
 ## Plugins

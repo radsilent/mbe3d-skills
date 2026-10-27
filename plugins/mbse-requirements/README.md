@@ -37,14 +37,14 @@ actually are:
 ## Install
 
 ```
-/plugin marketplace add radsilent/mbe3d-skills
+/plugin marketplace add radsilent/mbestudio-skills
 /plugin install mbse-requirements@vector-stream-systems
 ```
 
 ## The other eight
 
 This is one skill of nine. The rest are in the
-[MBE3D Systems Engineering Skill Pack](https://vectorstreamsystems.com/skillpack),
+[MBEstudio Systems Engineering Skill Pack](https://vectorstreamsystems.com/skillpack),
 a one-time purchase:
 
 | | |
